@@ -11,6 +11,16 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "paths": {
+      "odprz-ui": [
+        "dist/odprz-ui/odprz-ui",
+        "dist/odprz-ui"
+      ],
+      "simple-card": [
+        "dist/simple-card/simple-card",
+        "dist/simple-card"
+      ]
+    },
     "module": "es2020",
     "lib": [
       "es2018",
