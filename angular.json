@@ -6,46 +6,6 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "simple-card": {
-      "projectType": "library",
-      "root": "projects/simple-card",
-      "sourceRoot": "projects/simple-card/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "tsConfig": "projects/simple-card/tsconfig.lib.json",
-            "project": "projects/simple-card/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/simple-card/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/simple-card/src/test.ts",
-            "tsConfig": "projects/simple-card/tsconfig.spec.json",
-            "karmaConfig": "projects/simple-card/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/simple-card/tsconfig.lib.json",
-              "projects/simple-card/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "test-components": {
       "projectType": "application",
       "schematics": {
@@ -123,12 +83,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/test-components/src/test.ts",
             "polyfills": "projects/test-components/src/polyfills.ts",
             "tsConfig": "projects/test-components/tsconfig.spec.json",
-            "karmaConfig": "projects/test-components/karma.conf.js",
             "assets": [
               "projects/test-components/src/favicon.ico",
               "projects/test-components/src/assets"
@@ -185,11 +143,9 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/odprz-ui/src/test.ts",
-            "tsConfig": "projects/odprz-ui/tsconfig.spec.json",
-            "karmaConfig": "projects/odprz-ui/karma.conf.js"
+            "tsConfig": "projects/odprz-ui/tsconfig.spec.json"
           }
         },
         "lint": {
