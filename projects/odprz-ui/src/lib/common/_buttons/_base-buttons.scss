@@ -1,0 +1,96 @@
+@import './../core';
+
+// #################### ****** Buttons ******* ############################
+
+@mixin btn-base{
+  cursor:pointer;
+  margin: 0;
+  line-height: 32px;
+  padding: 0 16px;
+  min-width: 64px;
+  color:#363636;
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  overflow: visible;
+}
+@mixin btn-disabled(){
+  background-color: #f3f3f3;
+  border-color: #e7e8e9;
+  color: #c9c9c9;
+  cursor: default;
+}
+
+@mixin btn-color($color) {
+  background-color: $color;
+  border-color: darken($color, 5%);
+}
+
+@mixin btn-darken-hover($color){
+  background-color: darken($color, 5%);
+  border-color: darken($color,10%);
+}
+
+
+@mixin btn-default(){
+  @include btn-color($default-color);
+  &:hover{
+    @include btn-darken-hover($default-color);
+  };
+  &:focus{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+  };
+  &:disabled{
+    @include btn-disabled();
+  }
+}
+
+@mixin btn-secundary(){
+  color: white;
+  @include btn-color($secundary-color);
+
+  &:hover{
+    @include btn-darken-hover($secundary-color);
+  };
+  &:disabled{
+    @include btn-disabled();
+  }
+}
+
+@mixin btn-alert(){
+  color: white;
+  @include btn-color($alert-color);
+  &:hover{
+    @include btn-darken-hover($alert-color);
+  };
+  &:disabled{
+    @include btn-disabled();
+  }
+}
+
+@mixin btn-primary {
+  color: white;
+  @include btn-color($primary-color);
+  &:hover{
+    @include btn-darken-hover($primary-color);
+  };
+  &:disabled{
+    @include btn-disabled()
+  }
+}
+
+@mixin btn-warn{
+  color: white;
+  @include btn-color($warn-color);
+ &:hover{
+  @include btn-darken-hover($warn-color);
+ };
+ &:disabled{
+   @include btn-disabled();
+ }
+}
+
