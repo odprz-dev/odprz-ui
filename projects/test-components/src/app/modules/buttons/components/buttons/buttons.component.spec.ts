@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OdprzUiComponent } from './odprz-ui.component';
+import { ButtonsComponent } from './buttons.component';
 
-describe('OdprzUiComponent', () => {
-  let component: OdprzUiComponent;
-  let fixture: ComponentFixture<OdprzUiComponent>;
+describe('ButtonsComponent', () => {
+  let component: ButtonsComponent;
+  let fixture: ComponentFixture<ButtonsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OdprzUiComponent ]
+      declarations: [ ButtonsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OdprzUiComponent);
+    fixture = TestBed.createComponent(ButtonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
