@@ -1,0 +1,33 @@
+@import './base-buttons';
+
+a.odprz-btn-flat{
+  padding: 0;
+}
+
+.odprz-btn-flat{
+  @include btn-base;
+  border-radius: 5px;
+  border-style: hidden;
+  @include btn-color($default-color);
+  @include btn-default;
+}
+
+.odprz-btn-flat.odprz-btn-primary{
+  @include btn-primary;
+}
+
+.odprz-btn-flat.odprz-btn-secundary{
+  @include btn-secundary;
+}
+
+.odprz-btn-flat.odprz-btn-alert{
+  @include btn-alert;
+}
+
+.odprz-btn-flat.odprz-btn-warn{
+  @include btn-warn;
+}
+
+.btn-oval{
+  border-radius: 20px;
+}
