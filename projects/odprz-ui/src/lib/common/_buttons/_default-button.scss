@@ -8,10 +8,22 @@ a.odprz-btn-default{
   @include btn-base;
   border-radius: 5px;
   border-style: hidden;
-  box-shadow: $elevation-6;
+  @if($is-dark-theme){
+    box-shadow: $button-elevation;
+    // box-shadow: $button-elevation-lighten;
+
+  }@else{
+    box-shadow: $button-elevation;
+  }
+  box-shadow: $button-elevation;
   @include btn-color($default-color);
   @include btn-default;
 }
+
+// .dark-theme * .odprz-btn-default{
+//   box-shadow: $button-elevation;
+//   // box-shadow: $button-elevation-lighten;
+// }
 
 .odprz-btn-default.odprz-btn-primary{
   @include btn-primary;
