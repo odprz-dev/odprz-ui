@@ -1,0 +1,8 @@
+{
+  "bundlerOptions":{
+    "entryFile":"./projects/odprz-ui/src/lib/common/_styles.scss",
+    "rootDir": "./projects/odprz-ui/src/lib/common/",
+    "outFile":"./dist/odprz-ui/_odprz-ui.styles.scss",
+    "ignoreImports": ["~@angular/.*"]
+  }
+}
