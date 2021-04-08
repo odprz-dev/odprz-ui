@@ -4,6 +4,13 @@ a.odprz-btn-flat{
   padding: 0;
 }
 
+.odprz-dark-theme * .odprz-btn-flat {
+  &:focus-visible{
+    @include ligth-button-boxshadow;
+  }
+  // TODO: isolate flat button of the boxshadow-rule
+}
+
 .odprz-btn-flat{
   @include btn-base;
   border-radius: 5px;

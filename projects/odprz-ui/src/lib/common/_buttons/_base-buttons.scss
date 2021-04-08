@@ -1,5 +1,13 @@
 @import './../core';
 
+@mixin dark-button-boxshadow {
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+}
+@mixin ligth-button-boxshadow {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.685);
+}
+
+
 // #################### ****** Buttons ******* ############################
 
 @mixin btn-base{
@@ -44,10 +52,15 @@
   border-color: ligthen($color,5%);
 }
 
+
 @mixin btn-border-focus{
   outline: none;
-  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
-  // TODO set the color focus or leave like default
+  @if($is-dark-theme){
+    @include ligth-button-boxshadow;
+  }@else{
+    @include dark-button-boxshadow;
+  }
+  // TODO: isolate flat button of the boxshadow-rule
 }
 
 /* Pre configuration btns color */
@@ -57,14 +70,15 @@
   &:hover{
     @include btn-darken-hover($default-color);
   };
-  &:focus{
+  &:focus-visible{
     @include btn-border-focus;
   };
   &:disabled{
     @include btn-disabled;
   };
-  &:active{
+  &:focus:active{
     @include btn-ligthen-hover($default-color);
+    @include btn-border-focus;
   }
 }
 
@@ -81,9 +95,6 @@
   &:active{
     @include btn-ligthen-hover($secundary-color);
   };
-  &:focus{
-    @include btn-border-focus;
-  }
 }
 
 @mixin btn-alert(){
@@ -98,9 +109,6 @@
   &:active{
     @include btn-ligthen-hover($alert-color);
   };
-  &:focus{
-    @include btn-border-focus;
-  }
 }
 
 @mixin btn-primary {
@@ -115,9 +123,7 @@
   &:active{
     @include btn-ligthen-hover($primary-color);
   };
-  &:focus{
-    @include btn-border-focus;
-  }
+
 }
 
 @mixin btn-warn{
@@ -132,9 +138,7 @@
   &:active{
     @include btn-ligthen-hover($warn-color);
   };
-  &:focus{
-    @include btn-border-focus;
-  }
+
 }
 
 /* Tex buttons */
@@ -151,18 +155,20 @@
   color: lighten($color, $amount:3);
   font-weight: 600;
   &:hover{
-    // background-color: lighten($color, 58%);
-    color: lighten($color, $amount: 15)
+    color: darken($color,$amount:0)
   };
   &:active{
     // TODO: add background opacity relative to $color
-    color: darken($color,$amount:2)
+    color: lighten($color, $amount: 15)
   };
   &:disabled{
     // TODO: change disabled color to variable
     color: #c9c9c9;
     cursor: default;
+  };
+  &:focus-visible{
+    // border: $color 1px;
+    outline: $color solid 1px;
   }
 
 }
-

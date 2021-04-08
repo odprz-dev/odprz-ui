@@ -4,6 +4,12 @@ a.odprz-btn-default{
   padding: 0;
 }
 
+.odprz-dark-theme * .odprz-btn-default {
+  &:focus-visible{
+    @include ligth-button-boxshadow;
+  }
+}
+
 .odprz-btn-default{
   @include btn-base;
   border-radius: 5px;

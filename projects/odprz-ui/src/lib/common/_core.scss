@@ -50,11 +50,11 @@ $button-elevation-lighten:  0 3px 1px -2px rgb(120 120 120 / 20%), 0 2px 2px 0 r
   color: $dark-theme-color-contrast;
 }
 
-.dark-theme{
+.odprz-dark-theme{
   @include dark-theme;
   transition: background 800ms;
 }
-.light-theme{
+.odprz-light-theme{
   @include light-theme;
   transition: background 800ms;
 }
