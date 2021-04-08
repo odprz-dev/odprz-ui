@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input } from '@angular/core';
 export class DefaultButtonDirective {
 
   @Input() color:string;
-  @Input() ovalVariant:boolean = false;
+  @Input() circleVariant:boolean = false;
 
   constructor(private el:ElementRef) {
     let tagName = el.nativeElement.tagName;
@@ -18,11 +18,9 @@ export class DefaultButtonDirective {
   }
 
   ngOnInit(): void {
-    console.log('input: ',this.color)
     if(this.color){
       switch (this.color) {
         case 'warn':
-          console.log('warn')
           this.el.nativeElement.classList.add('odprz-btn-warn');
           break;
           case 'alert':
@@ -39,8 +37,7 @@ export class DefaultButtonDirective {
       }
     }
 
-    if(this.ovalVariant){
-      console.log(this.ovalVariant);
+    if(this.circleVariant){
       this.el.nativeElement.classList.add('btn-oval')
     }
 
