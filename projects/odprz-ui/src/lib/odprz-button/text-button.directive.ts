@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[odprz-text-btn]'
@@ -7,11 +7,11 @@ export class TextButtonDirective {
 
   @Input() color:string;
 
-  constructor(private el:ElementRef) {
+  constructor(private el:ElementRef, private render: Renderer2) {
     let tagName = el.nativeElement.tagName;
 
     if(tagName === 'BUTTON' || tagName ==="A"){
-      el.nativeElement.className="odprz-btn-text";
+      render.addClass(el.nativeElement, 'odprz-btn-text');
     }
 
   }
@@ -20,16 +20,16 @@ export class TextButtonDirective {
     if(this.color){
       switch (this.color) {
         case 'warn':
-          this.el.nativeElement.classList.add('odprz-btn-warn');
+          this.render.addClass(this.el.nativeElement,'odprz-btn-warn');
           break;
-          case 'alert':
-          this.el.nativeElement.classList.add('odprz-btn-alert');
+        case 'alert':
+          this.render.addClass(this.el.nativeElement,'odprz-btn-alert');
           break;
-          case 'primary':
-          this.el.nativeElement.classList.add('odprz-btn-primary');
+        case 'primary':
+          this.render.addClass(this.el.nativeElement,'odprz-btn-primary');
           break;
-          case 'secundary':
-          this.el.nativeElement.classList.add('odprz-btn-secundary');
+        case 'secundary':
+          this.render.addClass(this.el.nativeElement,'odprz-btn-secundary');
           break;
         default:
           break;
