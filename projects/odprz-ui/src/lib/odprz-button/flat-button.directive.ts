@@ -1,11 +1,12 @@
-import { Directive, ElementRef, HostBinding, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { btnClasses, htmlSelectors } from '../utils/css-const';
 
 @Directive({
   selector: '[odprz-flat-btn]',
 })
 export class FlatButtonDirective {
 
-  @Input() color:string;
+  @Input() color:string | undefined;
   @Input() circleVariant:boolean = false;
 
 
@@ -15,8 +16,8 @@ export class FlatButtonDirective {
   constructor(private el:ElementRef, private render: Renderer2 ) {
     let tagName = el.nativeElement.tagName;
 
-    if(tagName === 'BUTTON' || tagName ==="A"){
-     render.addClass(el.nativeElement,"odprz-btn-flat");
+    if(tagName === htmlSelectors.button || tagName === htmlSelectors.a){
+     render.addClass(el.nativeElement, btnClasses.btnFlat);
     }
 
   }

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ButtonDirective } from './button.directive';
 import { FlatButtonDirective } from './flat-button.directive';
 import { DefaultButtonDirective } from './default-button.directive';
+import { TextButtonDirective } from './text-button.directive';
+import { StrokeButtonDirective } from './stroke-button.directive';
 
 
 
@@ -10,7 +12,9 @@ import { DefaultButtonDirective } from './default-button.directive';
   declarations: [
     ButtonDirective,
     FlatButtonDirective,
-    DefaultButtonDirective
+    DefaultButtonDirective,
+    TextButtonDirective,
+    StrokeButtonDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +22,9 @@ import { DefaultButtonDirective } from './default-button.directive';
   exports:[
     ButtonDirective,
     FlatButtonDirective,
-    DefaultButtonDirective
+    DefaultButtonDirective,
+    TextButtonDirective,
+    StrokeButtonDirective
   ]
 })
 export class OdprzButtonModule { }

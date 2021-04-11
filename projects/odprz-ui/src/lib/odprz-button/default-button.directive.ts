@@ -1,46 +1,29 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { validateBtnColor } from '../utils/aux-metodhs';
+import { btnClasses, htmlSelectors } from '../utils/css-const';
 
 @Directive({
   selector: '[odprz-btn]'
 })
 export class DefaultButtonDirective {
 
-  @Input() color:string;
+  @Input() color:string | undefined;
   @Input() circleVariant:boolean = false;
 
   constructor(private el:ElementRef, private render:Renderer2) {
     let tagName = el.nativeElement.tagName;
 
-    if(tagName === 'BUTTON' || tagName ==="A"){
-      render.addClass(el.nativeElement,'odprz-btn-default');
+    if(tagName === htmlSelectors.button || tagName === htmlSelectors.a){
+      render.addClass(el.nativeElement, btnClasses.btnDefault);
     }
-
   }
 
   ngOnInit(): void {
-    if(this.color){
-      switch (this.color) {
-        case 'warn':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-warn');
-          break;
-        case 'alert':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-alert');
-          break;
-        case 'primary':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-primary');
-          break;
-        case 'secundary':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-secundary');
-          break;
-        default:
-          break;
-      }
-    }
-
+    let btnColor = validateBtnColor(this.color);
+    (btnColor)? this.render.addClass(this.el.nativeElement,btnColor) : null;
     if(this.circleVariant){
-      this.render.addClass(this.el.nativeElement,'btn-oval');
+      this.render.addClass(this.el.nativeElement, btnClasses.circleVariant);
     }
-
   }
 
 }

@@ -1,40 +1,24 @@
-import { Directive, ElementRef, HostBinding, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import {btnClasses, htmlSelectors, validateBtnColor} from './../utils/utils-api';
 
 @Directive({
   selector: '[odprz-border-btn]',
 })
 export class ButtonDirective {
 
-  @Input() public color:string;
+  @Input() color:string | undefined;
 
 
   constructor(private el:ElementRef,private render: Renderer2) {
     let tagName = el.nativeElement.tagName;
 
-
-    if(tagName === 'BUTTON' || tagName ==="A"){
-      render.addClass(this.el.nativeElement,'odprz-btn-border');
+    if(tagName === htmlSelectors.button || tagName === htmlSelectors.a){
+      render.addClass(this.el.nativeElement, btnClasses.btnBorder);
     }
   }
 
   ngOnInit(): void {
-    if(this.color){
-      switch (this.color) {
-        case 'warn':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-warn');
-          break;
-        case 'alert':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-alert');
-          break;
-        case 'primary':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-primary');
-          break;
-        case 'secundary':
-          this.render.addClass(this.el.nativeElement,'odprz-btn-secundary');
-          break;
-        default:
-          break;
-      }
-    }
+    let btnColor = validateBtnColor(this.color);
+    btnColor? this.render.addClass(this.el.nativeElement,btnColor):null;
   }
 }
