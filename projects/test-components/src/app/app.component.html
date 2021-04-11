@@ -1,73 +1,93 @@
-<h1>{{title}}</h1>
+<div class="app-container" [ngClass]="(darkMode)?'odprz-dark-theme':'odprz-light-theme'">
+  <div class="switch-container">
+    <div class="theme-switch-wrapper">
+    <span style="font-size: x-large;">🌞  </span>
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" [(ngModel)]="darkMode" id="checkbox" />
+        <div class="slider round"></div>
+      </label>
+      <span style="font-size: x-large;">🌛</span>
+      <em>Enable Dark Mode!</em>
+    </div>
+  </div>
+  <div>
+    <h1>{{title}}</h1>
+    <h3>Default</h3>
+    <div class="btn-container">
+      <button odprz-btn  [disabled]="isDisabled">Default</button>
+      <button odprz-btn color=primary  [disabled]="isDisabled">Primary</button>
+      <button odprz-btn color=secundary  [disabled]="isDisabled">Secundary</button>
+      <button odprz-btn color=alert  [disabled]="isDisabled">Alert</button>
+      <button odprz-btn color=warn  [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-btn  color=warn >Link</a>
+    </div>
+    <hr>
+    <h3>Default with circle variant</h3>
+    <div class="btn-container">
+      <button odprz-btn [circleVariant]=true [disabled]="isDisabled">Default</button>
+      <button odprz-btn color=primary [circleVariant]=true [disabled]="isDisabled">Primary</button>
+      <button odprz-btn color=secundary [circleVariant]=true [disabled]="isDisabled">Secundary</button>
+      <button odprz-btn color=alert [circleVariant]=true [disabled]="isDisabled">Alert</button>
+      <button odprz-btn color=warn [circleVariant]=true [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-btn color=default [circleVariant]=true >Link</a>
+    </div>
+    <hr>
+    <h3>Border</h3>
+    <div class="btn-container">
+      <button odprz-border-btn [disabled]="isDisabled">Default</button>
+      <button odprz-border-btn color=primary [disabled]="isDisabled">Primary</button>
+      <button odprz-border-btn color=secundary [disabled]="isDisabled">Secundary</button>
+      <button odprz-border-btn color=alert [disabled]="isDisabled">Alert</button>
+      <button odprz-border-btn color=warn [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-border-btn color=secundary>Link</a>
+    </div>
+    <hr>
+    <h3>Flat</h3>
+    <div class="btn-container">
+      <button odprz-flat-btn [disabled]="isDisabled">Default</button>
+      <button odprz-flat-btn color=primary [disabled]="isDisabled">Primary</button>
+      <button odprz-flat-btn color=secundary [disabled]="isDisabled">Secundary</button>
+      <button odprz-flat-btn color=alert [disabled]="isDisabled">Alert</button>
+      <button odprz-flat-btn color=warn [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-flat-btn color="primary">Link</a>
+    </div>
+    <hr>
+    <h3>Flat with Circle variant</h3>
+    <div class="btn-container">
+      <button odprz-flat-btn circleVariant=true [disabled]="isDisabled">Default</button>
+      <button odprz-flat-btn color=primary circleVariant=true [disabled]="isDisabled">Primary</button>
+      <button odprz-flat-btn color=secundary circleVariant=true [disabled]="isDisabled">Secundary</button>
+      <button odprz-flat-btn color=alert circleVariant=true [disabled]="isDisabled">Alert</button>
+      <button odprz-flat-btn color=warn circleVariant=true [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-flat-btn color=alert circleVariant=true >Link</a>
+    </div>
 
-<h3>Border Bottom</h3>
-<div class="btn-container">
-  <button odprz-border-btn [disabled]="isDisabled">Default</button>
-  <button odprz-border-btn color=primary [disabled]="isDisabled">Primary</button>
-  <button odprz-border-btn color=secundary [disabled]="isDisabled">Secundary</button>
-  <button odprz-border-btn color=alert [disabled]="isDisabled">Alert</button>
-  <button odprz-border-btn color=warn [disabled]="isDisabled">Warn</button>
-  <a tabindex="0" odprz-border-btn color=secundary>Link</a>
-</div>
+    <hr>
+    <h3>Text</h3>
+    <div class="btn-container">
+      <button odprz-text-btn [disabled]="isDisabled">Default</button>
+      <button odprz-text-btn color=primary  [disabled]="isDisabled">Primary</button>
+      <button odprz-text-btn color=secundary  [disabled]="isDisabled">Secundary</button>
+      <button odprz-text-btn color=alert  [disabled]="isDisabled">Alert</button>
+      <button odprz-text-btn color=warn [disabled]="isDisabled">Warn</button>
+      <a tabindex="0" odprz-text-btn color=alert>Link</a>
+    </div>
 
-<hr>
+    <h3>Custom button</h3>
+    <div>
+      <button class="btn-custom" odprz-flat-btn color=alert [circleVariant]=true [disabled]="isDisabled" >Customized button with CSS</button>
+    </div>
 
-<h3>Default</h3>
-
-<div class="btn-container">
-  <button odprz-btn  [disabled]="isDisabled">Default</button>
-  <button odprz-btn color=primary  [disabled]="isDisabled">Primary</button>
-  <button odprz-btn color=secundary  [disabled]="isDisabled">Secundary</button>
-  <button odprz-btn color=alert  [disabled]="isDisabled">Alert</button>
-  <button odprz-btn color=warn  [disabled]="isDisabled">Warn</button>
-  <a tabindex="0" odprz-btn  >Link</a>
-
-</div>
-<hr>
-
-<h3>Default with oval variant</h3>
-<div class="btn-container">
-  <button odprz-btn [ovalVariant]="true" [disabled]="isDisabled">Default</button>
-  <button odprz-btn color=primary [ovalVariant]="true" [disabled]="isDisabled">Primary</button>
-  <button odprz-btn color=secundary [ovalVariant]="true" [disabled]="isDisabled">Secundary</button>
-  <button odprz-btn color=alert [ovalVariant]="true" [disabled]="isDisabled">Alert</button>
-  <button odprz-btn color=warn [ovalVariant]="true" [disabled]="isDisabled">Warn</button>
-  <a tabindex="0" odprz-flat-btn [ovalVariant]="true" >Link</a>
-
-</div>
-
-<hr>
-<h3>Flat</h3>
-<div class="btn-container">
-  <button odprz-flat-btn [disabled]="isDisabled">Default</button>
-  <button odprz-flat-btn color=primary [disabled]="isDisabled">Primary</button>
-  <button odprz-flat-btn color=secundary [disabled]="isDisabled">Secundary</button>
-  <button odprz-flat-btn color=alert [disabled]="isDisabled">Alert</button>
-  <button odprz-flat-btn color=warn [disabled]="isDisabled">Warn</button>
-  <a tabindex="0" odprz-flat-btn>Link</a>
-</div>
-<hr>
-
-<h3>Flat with oval variant</h3>
-<div class="btn-container">
-
-  <button odprz-flat-btn [ovalVariant]="true" [disabled]="isDisabled">Default</button>
-  <button odprz-flat-btn color=primary [ovalVariant]="true" [disabled]="isDisabled">Primary</button>
-  <button odprz-flat-btn color=secundary [ovalVariant]="true" [disabled]="isDisabled">Secundary</button>
-  <button odprz-flat-btn color=alert [ovalVariant]="true" [disabled]="isDisabled">Alert</button>
-  <button odprz-flat-btn color=warn [ovalVariant]="true" [disabled]="isDisabled">Warn</button>
-  <a tabindex="0" odprz-flat-btn [ovalVariant]="true" >Link</a>
-
-</div>
-
-<div>
-  <input  [(ngModel)]="isDisabled" type="radio" id="enabled" name="btn-status" [value]="false">
-  <label for="enabled">Activado</label>
-</div>
-
-
-<div >
-  <input [(ngModel)]="isDisabled" type="radio" id="disabled" name="btn-status" [value]="true">
-  <label for="disabled">Desactivado</label>
+    <div  class="radio-buttons">
+      <div>
+        <input  [(ngModel)]="isDisabled" type="radio" id="enabled" name="btn-status" [value]="false">
+        <label for="enabled">View enabled buttons</label>
+      </div>
+      <div>
+        <input [(ngModel)]="isDisabled" type="radio" id="disabled" name="btn-status" [value]="true">
+        <label for="disabled">View disabled buttons</label>
+      </div>
+    </div>
+  </div>
 </div>
 
