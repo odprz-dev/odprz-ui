@@ -17,6 +17,14 @@ a.odprz-btn-flat{
   border-style: hidden;
   @include btn-color($default-color);
   @include btn-default;
+  &:focus:active{
+    box-shadow: none;
+  };
+  &:focus-visible{
+    // border-style:groove;
+    // box-shadow: none
+    box-shadow: 0 0 2px 2px rgb(180, 180, 180);
+  }
 }
 
 .odprz-btn-flat.odprz-btn-primary{
