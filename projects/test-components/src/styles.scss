@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can configure the odprz-ui thematization here */
+/* the configuration must be  located before importing the styles */
+// $is-dark-theme:true; // you can enable dark-them for all components here
+// $dark-theme-color: #121212;
+$alert-color: rgba(4, 133, 94, 0.993);
+// $primary-color: green;
+
+
+@import 'projects/odprz-ui/src/lib/common/_styles.scss';
+// @import './../../../node_modules/@odprz/ui/odprz-ui.styles';
+
+/* put here your globaal styles */
+
+/* Html and body mandatory configuration for apply dark-theme with .odprz-dark-theme css class */
+html,body{
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'test-components';
+  title = 'Odprz User Interface Components';
+  isDisabled = false;
+  darkMode=false;
+  darkThemeClass='';
 }

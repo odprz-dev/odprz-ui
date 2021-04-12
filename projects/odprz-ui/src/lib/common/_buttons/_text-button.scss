@@ -1,0 +1,45 @@
+@import './base-buttons';
+
+a.odprz-btn-text{
+  padding: 0;
+}
+
+.odprz-dark-theme * .odprz-btn-text{
+  color: $dark-theme-color-contrast;
+}
+
+.odprz-btn-text{
+  @include btn-text-default;
+  @if($is-dark-theme){
+    color:$dark-theme-color-contrast;
+  }@else{
+    color: $default-color-contrast;
+  };
+  font-weight: 600;
+  &:hover{
+    color:#747474;
+  };
+  &:active{
+    color: darken(#c9c9c9, $amount:2)
+  };
+  &:disabled{
+    color: #c9c9c9;
+    cursor: default;
+  }
+}
+
+.odprz-btn-text.odprz-btn-primary{
+  @include btn-text-type($primary-color);
+}
+
+.odprz-btn-text.odprz-btn-secundary{
+  @include btn-text-type($secundary-color);
+}
+
+.odprz-btn-text.odprz-btn-alert{
+  @include btn-text-type($alert-color);
+}
+
+.odprz-btn-text.odprz-btn-warn{
+  @include btn-text-type($warn-color);
+}

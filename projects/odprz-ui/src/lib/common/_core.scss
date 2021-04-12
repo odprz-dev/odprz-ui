@@ -1,0 +1,60 @@
+// TODO: Create Themingn mixin with a scale palette 100 - 900
+@mixin theme($primary:#194a94, $secundary:#6300c6, $alert:#e6c820, $warn:#aa223f){
+
+}
+
+/* Colors Default Configuration */
+
+$primary-color:  #6300c6 !default;
+$primary-color-contrast: #FFFFFF !default;
+
+$secundary-color:  #df0070 !default;
+$secundary-color-contrast: #FFFFFF !default;
+
+
+$alert-color: #197bb4 !default;
+$alert-color-contrast: #FFFFFF !default;
+
+
+$default-color: #FFFFFF;
+$default-color-contrast: #1f1f1f !default;
+
+$warn-color: #eb0537 !default;
+$warn-color-contrast: #FFFFFF !default;
+
+$dark-theme-color: #121212 !default; //#0D1117
+$dark-theme-color-contrast: #FFFFFF !default;
+$dark-background-color: #1e1e1e !default;
+
+
+$light-theme-color:  #FAFAFA !default;
+$light-theme-color-contrast: #1f1f1f !default;
+$is-dark-theme: false !default;
+
+/* Elevations Variables */
+$odprz-box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+$elevation-6: 0px 3px 5px -1px rgba(128, 128, 128, 0.658);
+$elevation-16: 0px 16px 24px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+$button-elevation:  0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+$button-elevation-lighten:  0 3px 1px -2px rgb(120 120 120 / 20%), 0 2px 2px 0 rgb(120 120 120 / 14%), 0 1px 5px 0 rgb(120 120 120 / 12%);
+
+
+/* Themming Mode*/
+@mixin light-theme(){
+  background-color: $light-theme-color;
+  color: $light-theme-color-contrast;
+}
+
+@mixin dark-theme(){
+  background-color: $dark-theme-color;
+  color: $dark-theme-color-contrast;
+}
+
+.odprz-dark-theme{
+  @include dark-theme;
+  transition: background 800ms;
+}
+.odprz-light-theme{
+  @include light-theme;
+  transition: background 800ms;
+}

@@ -1,0 +1,175 @@
+@import './../core';
+
+@mixin dark-button-boxshadow {
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+}
+@mixin ligth-button-boxshadow {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.685);
+}
+
+
+// #################### ****** Buttons ******* ############################
+
+@mixin btn-base{
+  cursor:pointer;
+  margin: 0;
+  line-height: 32px;
+  padding: 0 16px;
+  min-width: 64px;
+  color:#363636;
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  overflow: visible;
+  transition: background 0.1s;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+@mixin btn-disabled(){
+  background-color: #f3f3f3;
+  border-color: #e7e8e9;
+  color: #c9c9c9;
+  cursor: default;
+}
+
+@mixin btn-color($color) {
+  background-color: $color;
+  border-color: darken($color, 5%);
+  // TODO: set the contrast color button
+}
+
+@mixin btn-darken-hover($color){
+  background-color: darken($color, 5%);
+  border-color: darken($color,10%);
+}
+
+@mixin btn-ligthen-hover($color){
+  background-color: $color;
+  border-color: ligthen($color,5%);
+}
+
+
+@mixin btn-border-focus{
+  outline: none;
+  @if($is-dark-theme){
+    @include ligth-button-boxshadow;
+  }@else{
+    @include dark-button-boxshadow;
+  }
+  // TODO: isolate flat button of the boxshadow-rule
+}
+
+/* Pre configuration btns color */
+
+@mixin btn-default(){
+  @include btn-color($default-color);
+  &:hover{
+    @include btn-darken-hover($default-color);
+  };
+  &:focus-visible{
+    @include btn-border-focus;
+  };
+  &:disabled{
+    @include btn-disabled;
+  };
+  &:focus:active{
+    @include btn-ligthen-hover($default-color);
+    @include btn-border-focus;
+  }
+}
+
+@mixin btn-secundary(){
+  color: white;
+  @include btn-color($secundary-color);
+
+  &:hover{
+    @include btn-darken-hover($secundary-color);
+  };
+  &:disabled{
+    @include btn-disabled;
+  };
+  &:active{
+    @include btn-ligthen-hover($secundary-color);
+  };
+}
+
+@mixin btn-alert(){
+  color: white;
+  @include btn-color($alert-color);
+  &:hover{
+    @include btn-darken-hover($alert-color);
+  };
+  &:disabled{
+    @include btn-disabled;
+  };
+  &:active{
+    @include btn-ligthen-hover($alert-color);
+  };
+}
+
+@mixin btn-primary {
+  color: white;
+  @include btn-color($primary-color);
+  &:hover{
+    @include btn-darken-hover($primary-color);
+  };
+  &:disabled{
+    @include btn-disabled;
+  };
+  &:active{
+    @include btn-ligthen-hover($primary-color);
+  };
+
+}
+
+@mixin btn-warn{
+  color: white;
+  @include btn-color($warn-color);
+  &:hover{
+    @include btn-darken-hover($warn-color);
+  };
+  &:disabled{
+    @include btn-disabled;
+  };
+  &:active{
+    @include btn-ligthen-hover($warn-color);
+  };
+
+}
+
+/* Tex buttons */
+@mixin btn-text-default{
+  @include btn-base;
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: transparent;
+
+}
+
+@mixin btn-text-type($color){
+  @include btn-text-default;
+  color: lighten($color, $amount:3);
+  font-weight: 600;
+  &:hover{
+    color: darken($color,$amount:0)
+  };
+  &:active{
+    // TODO: add background opacity relative to $color
+    color: lighten($color, $amount: 15)
+  };
+  &:disabled{
+    // TODO: change disabled color to variable
+    color: #c9c9c9;
+    cursor: default;
+  };
+  &:focus-visible{
+    // border: $color 1px;
+    outline: $color solid 1px;
+    // outline-style: auto;
+  }
+
+}

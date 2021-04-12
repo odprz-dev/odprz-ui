@@ -1,0 +1,46 @@
+@import './base-buttons';
+
+
+a.odprz-btn-border{
+  padding: 0;
+}
+
+.odprz-btn-border{
+  // @if($dark-theme){
+  //   // box-shadow: $button-elevation-lighten;
+  //   box-shadow: $button-elevation;
+
+  // }@else{
+  //   box-shadow: $button-elevation;
+  // }
+  box-shadow: $button-elevation;
+  border-radius: 5px;
+  border-width: 0 0 5px 0;
+  border-style: solid;
+  @include btn-base();
+  @include btn-default();
+
+  // // transition: background 400ms cubic-bezier(0.35, 0, 0.25, 1) ;
+}
+
+
+.odprz-dark-theme * .odprz-btn-border {
+  &:focus-visible{
+    @include ligth-button-boxshadow;
+  }
+}
+.odprz-btn-border.odprz-btn-warn{
+ @include btn-warn();
+}
+
+.odprz-btn-border.odprz-btn-primary{
+ @include btn-primary();
+}
+
+.odprz-btn-border.odprz-btn-alert{
+  @include btn-alert();
+}
+
+.odprz-btn-border.odprz-btn-secundary{
+  @include btn-secundary();
+}

@@ -1,0 +1,48 @@
+@import './base-buttons';
+
+a.odprz-btn-flat{
+  padding: 0;
+}
+
+.odprz-dark-theme * .odprz-btn-flat {
+  &:focus-visible{
+    @include ligth-button-boxshadow;
+  }
+  // TODO: isolate flat button of the boxshadow-rule
+}
+
+.odprz-btn-flat{
+  @include btn-base;
+  border-radius: 5px;
+  border-style: hidden;
+  @include btn-color($default-color);
+  @include btn-default;
+  &:focus:active{
+    box-shadow: none;
+  };
+  &:focus-visible{
+    // border-style:groove;
+    // box-shadow: none
+    box-shadow: 0 0 2px 2px rgb(180, 180, 180);
+  }
+}
+
+.odprz-btn-flat.odprz-btn-primary{
+  @include btn-primary;
+}
+
+.odprz-btn-flat.odprz-btn-secundary{
+  @include btn-secundary;
+}
+
+.odprz-btn-flat.odprz-btn-alert{
+  @include btn-alert;
+}
+
+.odprz-btn-flat.odprz-btn-warn{
+  @include btn-warn;
+}
+
+.btn-oval{
+  border-radius: 20px;
+}
